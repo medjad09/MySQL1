@@ -1,0 +1,12 @@
+
+Ex 7 :
+
+SELECT * FROM chevauxdecurie.table_name;
+SELECT * FROM chevauxdecurie.chevaux
+WHERE race = 'Arabian'
+ORDER BY nom_cheval DESC;
+SELECT tailleType, Poidstype FROM chevauxdecurie.chevaux
+WHERE race = 'Arabian';
+SELECT DISTINCT proprietaire FROM chevauxdecurie.chevaux;
+SELECT personne FROM organisation
+WHERE superieur IS NULL;

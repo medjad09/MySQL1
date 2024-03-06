@@ -1,0 +1,24 @@
+
+Ex 8 :
+
+SELECT COUNT(*) AS nombre_etudiants FROM etudiants;
+SELECT nom, prenom, DATEDIFF(CURDATE(), date_naissance) AS age FROM etudiants;
+SELECT nom_formation, prix_formation 
+FROM formations 
+WHERE prix_formation = (SELECT MAX(prix_formation) FROM formations)
+   OR prix_formation = (SELECT MIN(prix_formation) FROM formations);
+SELECT SUM(prix_formation) AS total_prix
+FROM formations;
+SELECT session_id, COUNT(*) AS nombre_etudiants_inscrits
+FROM inscriptions
+GROUP BY session_id;
+SELECT DISTINCT cin
+FROM inscriptions;
+SELECT cin, COUNT(*) AS nombre_inscriptions
+FROM inscriptions
+GROUP BY cin;
+SELECT session_id,
+       SUM(CASE WHEN type_inscription = 'distance' THEN 1 ELSE 0 END) AS nombre_inscriptions_distance,
+       SUM(CASE WHEN type_inscription = 'présentiel' THEN 1 ELSE 0 END) AS nombre_inscriptions_présentielles
+FROM inscriptions
+GROUP BY session_id;
